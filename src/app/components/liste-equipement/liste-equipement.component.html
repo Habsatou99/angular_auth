@@ -1,0 +1,71 @@
+<!-- Default box -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-tools">
+            <a class="btn btn-primary bg-green" routerLink="/ajout-equipement">
+                <i class="fas fa-plus">
+                </i>
+                Add
+            </a>
+          </div>
+        </div>
+        <div class="container mt-4 mr-5">
+            <h1>Equipement Table</h1>
+            
+          <table class="table table-striped projects ">
+              <thead>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Departement</th>
+                <th scope="col">IP_Adress</th>
+                <th scope="col">Type</th>
+                
+              </thead>
+              <tbody>
+                <tr *ngFor="let EquipementItem of EquipementArray ">
+                    <ul></ul>
+                    <th scope="row">{{EquipementItem.id}}</th>
+                      <td>
+                        {{EquipementItem.name|uppercase}}
+                      </td>
+                      <td class="project_progress">
+                        {{EquipementItem.description}}
+                     </td>
+                     <td class="project_progress">
+                      {{EquipementItem.departement}}
+                   </td>
+                      <td class="project_progress">
+                        {{EquipementItem.ip_adress}}
+                      </td>
+                      <td class="project_progress">
+                        {{EquipementItem.type}}
+                     </td>
+                      <td class="project-actions text-right">
+                          <a class="btn btn-primary btn-sm" routerLink="/equipement-edit/{{EquipementItem.id}}">
+                              <i class="fas fa-folder">
+                              </i>
+                              View
+                          </a>
+                          <a class="btn btn-danger btn-sm" (click)="setDelete(EquipementItem)" >
+                              <i class="fas fa-trash">
+                              </i>
+                              Delete
+                          </a>
+                          <a class="btn btn-info btn-sm" routerLink="/liste_ping/{{EquipementItem.ip_adress}}">
+                            <i class="fas fa-pencil-alt">
+                            </i>
+                            Pings
+                        </a>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                          
+                        </div>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->

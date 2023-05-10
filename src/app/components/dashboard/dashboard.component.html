@@ -1,0 +1,69 @@
+
+<div class="container  mr-5">
+    <div class="card-header">
+        <h1>Pourcentage Ping</h1>
+        
+        <div class="card-tools">
+            <div class="form-group " >
+               <!-- <label>From</label>
+                   <input type="date" name="dateFrom"><br>
+                   <label>To</label>
+                   <input type="date" name="dateTo"><br>
+               <label >Equipement</label>
+                <select  [(ngModel)]="selectedValue" >
+                  <option  *ngFor="let value of values" [value]="value">{{ value }}</option>
+                </select>--> 
+                <mat-form-field color="accent">
+                    <mat-label>Filter</mat-label>
+                    <mat-select [(ngModel)]="selectedValue" multiple>
+                        <mat-optgroup label="Equipement">
+                            <mat-option *ngFor="let value of values" [value]="value">
+                                {{ value }}
+                              </mat-option>
+                        </mat-optgroup>
+                        <div class="button-container">
+                            <mat-button-toggle-group>
+                                <button mat-button color="primary" (click)="toggleSelectAll() ">SelectAll</button>
+                           <!--  <button mat-button color="primary" (click)="toggleSelectAll() ">DeselectAll</button>-->
+                            </mat-button-toggle-group>
+                          </div>                          
+                     <mat-optgroup label="Date" >
+                        <input matInput type="date" name="dateFrom" [(ngModel)]="dateFrom">
+                        <input matInput type="date" name="dateTo" [(ngModel)]="dateTo">
+                         <!--  <button (click)=" getPindate()">Get Data</button> -->
+                     </mat-optgroup>
+                    </mat-select>
+                  </mat-form-field>
+                   <!--  <button (click)=" getPindate()">Get Data</button> -->
+                <button type="submit" class="btn btn-primary" (click)="get()">GetData</button>
+              </div>
+              <div *ngIf="errorMessage">{{ errorMessage }}</div>
+        </div>
+      </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <canvas id="pie-chart" width="250" height="250" chart></canvas>
+        </div>
+        <div class="col-lg-6">
+            <canvas id="doughnut-chart" width="250" height="250"></canvas>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            
+            <canvas id="bar-chart" width="250" height="250"></canvas>
+        </div>
+        <div class="col-lg-6">
+        
+            <canvas id="polarArea-chart" width="250" height="250"></canvas>
+        </div>
+       
+    </div>
+</div>
+
+<div class="container">
+ 
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      
+    </div>
+  </div>
